@@ -143,6 +143,7 @@ if st.checkbox("Análisis",value=False):
     st.subheader('Análisis de Correlacción')
     n=st.number_input('Parámetros a Analizar',min_value=1, max_value=16, value=int(8))
     car_df_attr= df1.iloc[:,1:n]
+    car_df_attr = car_df_attr.reset_index()
     fig=sns.pairplot(car_df_attr, diag_kind = 'kde')
     st.pyplot(fig)
     st.subheader('Análisis Estadístico Descriptivo')
