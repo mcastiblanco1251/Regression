@@ -143,7 +143,7 @@ if st.checkbox("Análisis",value=False):
     st.subheader('Análisis de Correlacción')
     n=st.number_input('Parámetros a Analizar',min_value=1, max_value=16, value=int(8))
     car_df_attr= df1.iloc[:,1:n]
-    car_df_attr = car_df_attr.reset_index()
+    car_df_attr = car_df_att.reset_index()
     fig=sns.pairplot(car_df_attr, diag_kind = 'kde')
     st.pyplot(fig)
     st.subheader('Análisis Estadístico Descriptivo')
@@ -169,7 +169,8 @@ with row1_3:
 with row1_4:
     st.subheader(f'El precio del carro es USD$ {prediction}')
 
-st.subheader('Quieres conocer mas de IA, ML o DL 👉[contactanos!!](http://ia.smartecorganic.com.co/index.php/contact/)')
+with st.expander("Contáctanos👉"):
+    st.subheader('Quieres conocer mas de IA, ML o DL 👉[contactanos!!](http://ia.smartecorganic.com.co/index.php/contact/)')
 # for idx, col_name in enumerate(X_train.columns):
 #     st.write("The coefficient for {} is {}".format(col_name, regression_model.coef_[0][idx]))
 # intercept = regression_model.intercept_[0]
