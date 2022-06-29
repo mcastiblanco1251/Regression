@@ -111,7 +111,7 @@ else:
                 }
         features = pd.DataFrame(data, index=[0])
         return features
-    input_df = user_input_features()
+input_df = user_input_features()
 
 # Combines user input features with entire penguins dataset
 # This will be useful for the encoding phase
@@ -136,14 +136,15 @@ if uploaded_file is not None:
 else:
     st.write('A la espera de que se cargue el archivo CSV. Actualmente usando parámetros de entrada de ejemplo (que se muestran a continuación).')
     st.write(df1[:1])
-
+st.dataframe(df1)
 # Reads in saved classification model
 st.subheader('Análisis de Variables')
 if st.checkbox("Análisis",value=False):
     st.subheader('Análisis de Correlacción')
     n=st.number_input('Parámetros a Analizar',min_value=1, max_value=16, value=int(8))
     car_df_attr= df1.iloc[:,1:n]
-    car_df_attr = car_df_att.reset_index()
+    #st.dataframe(car_df_attr)
+    #car_df_attr = car_df_att.reset_index()
     fig=sns.pairplot(car_df_attr, diag_kind = 'kde')
     st.pyplot(fig)
     st.subheader('Análisis Estadístico Descriptivo')
